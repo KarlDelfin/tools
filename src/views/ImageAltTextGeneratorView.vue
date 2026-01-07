@@ -20,7 +20,7 @@ export default {
       loading: false,
       error: null,
       // Your Hugging Face API key
-      hfApiKey: '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'
+      hfApiKey: import.meta.env.VITE_APP_HUGGINGFACE_API
     };
   },
   methods: {
