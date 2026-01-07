@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import HyphenStringView from '../views/HyphenStringView.vue'
 import URLDecoderView from '../views/URLDecoderView.vue'
+import ImageAltTextGeneratorView from '../views/ImageAltTextGeneratorView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +21,11 @@ const router = createRouter({
       path: '/url-decoder',
       name: 'urlDecoder',
       component: URLDecoderView,
+    },
+    {
+      path: '/image-alt-text-generator',
+      name: 'imageAltTextGenerator',
+      component: ImageAltTextGeneratorView,
     },
   ],
 })

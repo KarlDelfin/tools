@@ -21,9 +21,9 @@
       </template>
     </el-menu-item>
 
-    <el-menu-item index="/alt-text-generator">
+    <el-menu-item index="/image-alt-text-generator">
       <template #title>
-        <span>Alt Text Generator</span>
+        <span>Image Alt Text Generator</span>
       </template>
     </el-menu-item>
   </el-menu>
