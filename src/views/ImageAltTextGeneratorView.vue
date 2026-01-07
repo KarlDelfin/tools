@@ -19,9 +19,6 @@ export default {
       altText: '',
       loading: false,
       error: null,
-      // Your Hugging Face API key
-      hf: 'hf_',
-      hfApiKey: 'IJckhnuWFGPdYHUsbLcycoktakqdLoIsfU'
     };
   },
   methods: {
@@ -44,7 +41,7 @@ export default {
         const response = await fetch("https://router.huggingface.co/v1/chat/completions", {
           method: "POST",
           headers: {
-            "Authorization": `Bearer ${this.hf+this.hfApiKey}`,
+            "Authorization": `Bearer ${import.meta.env.VITE_APP_HUGGINGFACE_API}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
