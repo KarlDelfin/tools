@@ -19,6 +19,7 @@
     "@google/generative-ai": "^0.24.1",
     "@xenova/transformers": "^2.5.0",
     "axios": "^1.13.2",
+    "compressorjs": "^1.2.1",
     "element-plus": "^2.13.0",
     "openai": "^6.15.0",
     "tesseract.js": "^7.0.0",

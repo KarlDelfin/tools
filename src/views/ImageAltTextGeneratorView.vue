@@ -4,14 +4,24 @@
     <input type="file" @change="handleImageUpload" accept="image/*" />
     <div v-if="imageUrl">
       <img :src="imageUrl" :alt="altText" style="max-width: 300px;" />
-      <p v-if="altText != ''">Generated Alt Text: <strong>{{ altText }}</strong></p>
     </div>
+    <textarea 
+      v-model="altText" 
+      rows="10" 
+      style="width: 100%;"
+      readonly
+      @paste="pasteImage"
+    ></textarea>
+    <button v-if="altText != ''" @click="copyToClipboard">Copy Text</button>
+    
     <p v-if="loading">Generating alt text...</p>
     <p v-if="error" class="error" style="color: red;">{{ error }}</p>
   </div>
 </template>
 
 <script>
+import { ElMessage } from 'element-plus';
+
 export default {
   data() {
     return {
@@ -27,6 +37,30 @@ export default {
       if (file) {
         this.imageUrl = URL.createObjectURL(file);
         this.generateAltText(file);
+      }
+    },
+
+    async pasteImage(event) {
+      event.preventDefault();
+  
+      const items = event.clipboardData?.items;
+      if (!items) return;
+      
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        
+        if (item.type.startsWith('image/')) {
+          const file = item.getAsFile();
+          
+          if (file) {
+            this.loading = true;
+            
+            this.imageUrl = URL.createObjectURL(file);
+            
+            await this.generateAltText(file);
+            break;
+          }
+        }
       }
     },
     
@@ -98,7 +132,17 @@ export default {
         };
         reader.onerror = error => reject(error);
       });
-    }
+    },
+
+    copyToClipboard() {
+      navigator.clipboard.writeText(this.altText)
+        .then(() => {
+          ElMessage.success('Text copied!')
+        })
+        .catch(err => {
+          this.error = 'Failed to copy text: ' + err;
+        });
+    },
   },
   
   beforeUnmount() {

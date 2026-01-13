@@ -2,7 +2,7 @@
   <el-container>
     <el-header></el-header>
     <el-container>
-      <el-aside width="200px">
+      <el-aside width="250px">
         <SideMenu/>
       </el-aside>
       <el-main>  

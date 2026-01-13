@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import HyphenStringView from '../views/HyphenStringView.vue'
 import URLDecoderView from '../views/URLDecoderView.vue'
 import ImageAltTextGeneratorView from '../views/ImageAltTextGeneratorView.vue'
+import ImageCompressorView from '../views/ImageCompressorView.vue'
+import VideoCompressorView from '../views/VideoCompressorView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +28,16 @@ const router = createRouter({
       path: '/image-alt-text-generator',
       name: 'imageAltTextGenerator',
       component: ImageAltTextGeneratorView,
+    },
+    {
+      path: '/image-compressor',
+      name: 'imageCompressor',
+      component: ImageCompressorView,
+    },
+    {
+      path: '/video-compressor',
+      name: 'videoCompressor',
+      component: VideoCompressorView,
     },
   ],
 })

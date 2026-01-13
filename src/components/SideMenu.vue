@@ -23,7 +23,13 @@
 
     <el-menu-item index="/image-alt-text-generator">
       <template #title>
-        <span>Image Alt Text Generator</span>
+        <span>Image Alt Text Generator (Beta)</span>
+      </template>
+    </el-menu-item>
+
+    <el-menu-item index="/image-compressor">
+      <template #title>
+        <span>Image Compressor</span>
       </template>
     </el-menu-item>
   </el-menu>
